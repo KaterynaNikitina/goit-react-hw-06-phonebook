@@ -1,4 +1,3 @@
-
 import { useDispatch } from 'react-redux';
 import { removeContact } from 'redux/contactsSlice';
 
@@ -12,8 +11,8 @@ export const ListItem = ({ id, name, number }) => {
       {name}: {number}
       <ItemBtn
         onClick={() => {
-          dispatch(removeContact(id));
-        }}
+          dispatch(removeContact(id))
+      }}
       >
         Delete
       </ItemBtn>

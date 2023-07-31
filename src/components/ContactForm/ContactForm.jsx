@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
 import { addContact } from 'redux/contactsSlice';
-
+import { nanoid } from 'nanoid';
 import { Form, Button, Label, Input } from './ContactForm.styled';
 
 export const ContactForm = () => {
@@ -35,14 +35,14 @@ export const ContactForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
         const isExistingContact = contacts.find(
-        contact => contact.name.toLowerCase() !== name.toLowerCase()
+        contact => contact.name.toLowerCase() === name.toLowerCase()
       );
   
       if (isExistingContact) {
         alert(`${name} is already in contacts`);
         return;
       }
-      dispatch(addContact({ name, number }));
+      dispatch(addContact({ name, number, id: nanoid() }));
     reset ();
   };
 

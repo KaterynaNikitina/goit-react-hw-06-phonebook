@@ -2,7 +2,7 @@ import { ListItem } from 'components/ListItem/ListItem';
 // import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { getContacts, getFilter } from 'redux/selectors';
-
+// import { nanoid } from 'nanoid';
 import { List } from './ContactList.styled';
 
 export const ContactList = () => {
@@ -17,7 +17,7 @@ export const ContactList = () => {
   return (
     <List>
       {filteredContacts.map(({ id, name, number }) => (
-        <ListItem key={id} name={name} number={number} id={id} />
+        <ListItem key={id} name={name} number={number} id={id}/>
       ))}
     </List>
   );
